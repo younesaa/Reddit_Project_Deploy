@@ -217,16 +217,3 @@
    - Navigate to **Add Data Source → Prometheus**.
    - Set up and start monitoring.
 
----
-
-## 📈 Analyzing and Interpreting Metrics
-
-   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*wGf0Hrp5qBsfErwJruOfuw.png)
-
-   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*hFbOPfxmW0HCVnI8qXpHug.png)
-
-   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*9nhFyD5K4xMNuz5zhK9vvg.png)
-
-   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*0TQyPda68KP79Jaw0YogfQ.png)
-
-After setting up monitoring, you'll have access to detailed metrics from Prometheus, displayed on Grafana dashboards. These metrics help in identifying bottlenecks, understanding application behavior under load, and ensuring that everything runs smoothly. This proactive approach helps in maintaining high availability and performance, ensuring your application is always up and running.
