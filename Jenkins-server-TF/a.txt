@@ -1,0 +1,6 @@
+You need to do the following :
+1. Create an S3 bucket
+2. Create a DyanamoDB table
+Configure them in backend.tf
+Create a Key Pair on AWS UI.
+Give those details in variables.tfvars file
