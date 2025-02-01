@@ -1,12 +1,15 @@
-# Deploy Reddit App to Amazon Elastic Kubernetes Service (EKS) using ArgoCD and monitor its performance
+# 🚀DevSecOps: Deploy Reddit App to Amazon Elastic Kubernetes Service (EKS) using ArgoCD and monitor its performance ✨
+
+![](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*vEZw9zoaHUGTVnu9OY84dg.png)
 
 ## 🛠️ Steps to Implement
 
 ### **Step 1: Setup Jenkins Server**
 
-1. **Cd to jenkins sevrer folder:**
+1. **Clone the Repository:**
 
    ```bash
+   git clone https://github.com/uniquesreedhar/Reddit-Project.git
    cd Reddit-Project/Jenkins-Server-TF/
    ```
 
@@ -32,7 +35,7 @@
    aws configure
    ```
 
-   Provide your AWS Access Key ID, Secret Access Key, region name.
+   Provide your AWS Access Key ID, Secret Access Key, region name, and output format.
 
 4. **Run Terraform Commands:**
 
@@ -47,6 +50,8 @@
 
 5. **Access Jenkins:**
 
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*eHkSo3ZcX5sgr5qG4XbyRw.png)
+
    - Copy the public IP of the instance and access Jenkins on your favorite browser:
 
      ```
@@ -55,13 +60,21 @@
   
 6. **Get Jenkins Password:**
 
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*wfz8_u1Wz8P1jxrmWo5HFg.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*DTwHnnG6mU1Gp963QTgwiA.png)
+
    - Connect to the instance and retrieve the password.
   
 7. **Create Jenkins User:**
 
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*dc-Uk2gjpl4u0AbnP473NA.png)
+
    - (Optional) Create a user if you don’t want to keep the default password.
 
 8. **Install Required Plugins:**
+
+   ![](https://miro.medium.com/v2/format:webp/1*BGE_C4xCqhHsfeG8qZoOVg.png)
 
    - Navigate to **Manage Jenkins → Plugins → Available Plugins** and install the following plugins without restarting:
      1. Eclipse Temurin Installer
@@ -76,6 +89,8 @@
 
 9. **Access SonarQube Console:**
 
+    ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*JPuXX4DXx7_qR5YAzVmY8g.png)
+
     ```
     <public_ip>:9000
     ```
@@ -84,6 +99,14 @@
 
 10. **Create and Configure Credentials:**
     
+    ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*ZA6hQO0d1PHQZNgFrbyEGg.png)
+
+    ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*yCq1go61epUjOMIUamEjKg.png)
+
+    ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*IIRUP1M-QAbQ6KQhRpiMrA.png)
+
+    ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*j1-JvDzJ8X55crLNLqtevQ.png)
+
     - Navigate to **Manage Jenkins → Credentials → Global** and create credentials for AWS, GitHub, and Docker.
 
 ---
@@ -92,13 +115,21 @@
 
 1. **Create a New Jenkins Pipeline:**
    
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*kyYceX4XO0fZ3CQawKTgnA.png)
+
    - Click on **New Item**, give a name, select **Pipeline**, and click **OK**.
 
 2. **Configure Pipeline:**
 
-   - Navigate to the Pipeline section, provide the GitHub URL of your project, and specify the credentials and the path to the Jenkinsfile. "Jenkinsfile-EKS-Terraform"
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*iHoDWlt81vRk3DPRp-GTVw.png)
+
+   - Navigate to the Pipeline section, provide the GitHub URL of your project, and specify the credentials and the path to the Jenkinsfile.
 
 3. **Build the Pipeline:**
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*Q7GjCivSKGaBwKeKDpHPOg.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*n-BIMoCrgRNbJ0r-JcnQaQ.png)
 
    - Click **Apply** and then **Build**. This will create an EKS cluster.
 
@@ -108,9 +139,13 @@
 
 1. **Create a New Jenkins Job:**
 
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*catvz_JkK2AgFHTxAJ6kuA.png)
+
    - Click on **New Item**, give a name, select **Pipeline**, and click **OK**.
 
 2. **Configure Jenkins Job:**
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*FL8E-6tBUcSfC3T-7HKgDA.png)
 
    - In the pipeline section:
      - Choose **Script from SCM**.
@@ -119,14 +154,27 @@
 
 3. **Build the Pipeline:**
 
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*1g4YMnR0wunUa2wzbfKetA.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*xhhUXkFyD1dbDpULMmIQyg.png)
+
    - Before building, create a GitHub token as secret text with the ID `githubcred` to update the built image in the deployment.yml file.
 
 4. **Check Scanning Results:**
 
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*u-2lJcZvAVVF-iDSgDoHlw.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*Qyjmz2jomCI6kmzoz-L7-w.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*K50IVirdbReldv4u_1E55A.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*T8BUpm7B-6moqGwswDJpVA.png)
+
    - View Trivy scan results, SonarQube analysis, and Dependency Checker outputs.
+   
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*shX8E0GqQQWMjDo5xADvXA.png)
 
 5. **Update Deployment File:**
-
    - The deployment file will be updated with the tag of the Jenkins build number.
 
 ---
@@ -161,7 +209,13 @@
 
 5. **Access ArgoCD Console:**
 
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*qH77YEPSTEnt6Jnx86lmzQ.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*d1T6guyj7tTjNWLtZE7oDg.png)
+
    - Login using the DNS name and credentials.
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*XwciX8TFK4RiTyfFFfJNxA.png)
 
 6. **Create ArgoCD Application:**
    - Click on **Create App**, edit the YAML, and replace `repoURL` with your GitHub project URL:
@@ -182,6 +236,10 @@
    ```
 
 7. **Deploy and Sync:**
+
+    ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*RWjBNQD23A2Mnimg0pB-zw.png)
+
+    ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*2NZnMDr_7J0gXvmzxbqXog.png)
 
     - Deploy and sync your Reddit application with EKS.
 
@@ -206,9 +264,21 @@
 
 3. **Access Grafana:**
 
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*qDLFfmYrXd5Qlm1JpwJsvA.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*0rEaeCv0BIppt4rdimmRdg.png)
+
    - Copy the public IP and access it through `<public_ip>:8081`.
 
 4. **Login to Grafana:**
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*CT-bSQ_aSYIVQL6XnH5xPQ.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*qBkeca25xx_LW9ZvFoaIXw.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*PR7S_0not9VTPcsmKD0zQw.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*NBf-Ue92V0Ur1JMtbYuyPw.png)
 
    - Default credentials: `admin/admin`.
 
@@ -217,10 +287,31 @@
    - Navigate to **Add Data Source → Prometheus**.
    - Set up and start monitoring.
 
+---
+
+## 📈 Analyzing and Interpreting Metrics
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*wGf0Hrp5qBsfErwJruOfuw.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*hFbOPfxmW0HCVnI8qXpHug.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*9nhFyD5K4xMNuz5zhK9vvg.png)
+
+   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*0TQyPda68KP79Jaw0YogfQ.png)
+
+After setting up monitoring, you'll have access to detailed metrics from Prometheus, displayed on Grafana dashboards. These metrics help in identifying bottlenecks, understanding application behavior under load, and ensuring that everything runs smoothly. This proactive approach helps in maintaining high availability and performance, ensuring your application is always up and running.
+
+---
+
+## 🔄 Conclusion
+
+By integrating Jenkins, ArgoCD, AWS EKS, and monitoring tools like Prometheus and Grafana, you create a robust pipeline that automates the deployment, security scanning, and monitoring of your applications. This setup is ideal for embracing DevSecOps practices, allowing your teams to focus on delivering value while ensuring security and reliability.
+
+---
 
 ## **Author by:**
 
-![s](https://imgur.com/2j6Aoyl.png)
+![](https://imgur.com/2j6Aoyl.png)
 
-> [!NOTE]
+> [!Note]
 > **Join Our** [Telegram Community](https://t.me/prodevopsguy) // [Follow me](https://github.com/NotHarshhaa) **for more DevOps & Cloud content.**
