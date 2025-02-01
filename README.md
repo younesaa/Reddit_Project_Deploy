@@ -217,3 +217,10 @@
    - Navigate to **Add Data Source → Prometheus**.
    - Set up and start monitoring.
 
+
+## **Author by:**
+
+![s](https://imgur.com/2j6Aoyl.png)
+
+> [!NOTE]
+> **Join Our** [Telegram Community](https://t.me/prodevopsguy) // [Follow me](https://github.com/NotHarshhaa) **for more DevOps & Cloud content.**
