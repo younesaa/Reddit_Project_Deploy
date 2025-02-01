@@ -9,7 +9,7 @@
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/uniquesreedhar/Reddit-Project.git
+   git clone https://github.com/younesaa/Reddit_Project_Deploy.git
    cd Reddit-Project/Jenkins-Server-TF/
    ```
 
@@ -162,10 +162,6 @@
 
 4. **Check Scanning Results:**
 
-   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*u-2lJcZvAVVF-iDSgDoHlw.png)
-
-   ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*Qyjmz2jomCI6kmzoz-L7-w.png)
-
    ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*K50IVirdbReldv4u_1E55A.png)
 
    ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*T8BUpm7B-6moqGwswDJpVA.png)
@@ -300,12 +296,6 @@
    ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*0TQyPda68KP79Jaw0YogfQ.png)
 
 After setting up monitoring, you'll have access to detailed metrics from Prometheus, displayed on Grafana dashboards. These metrics help in identifying bottlenecks, understanding application behavior under load, and ensuring that everything runs smoothly. This proactive approach helps in maintaining high availability and performance, ensuring your application is always up and running.
-
----
-
-## 🔄 Conclusion
-
-By integrating Jenkins, ArgoCD, AWS EKS, and monitoring tools like Prometheus and Grafana, you create a robust pipeline that automates the deployment, security scanning, and monitoring of your applications. This setup is ideal for embracing DevSecOps practices, allowing your teams to focus on delivering value while ensuring security and reliability.
 
 ---
 
