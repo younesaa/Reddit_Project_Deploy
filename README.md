@@ -219,7 +219,7 @@
    ```yaml
    project: default
    source:
-     repoURL: 'https://github.com/uniquesreedhar/Reddit-Project.git'
+     repoURL: 'https://github.com/younesaa/Reddit-Project.git'
      path: K8s/
      targetRevision: HEAD
    destination:
@@ -248,7 +248,7 @@
 1. **Deploy Prometheus and Grafana:**
 
    ```bash
-   kubectl apply -f https://raw.githubusercontent.com/uniquesreedhar/Reddit-Project/main/Prometheus/
+   kubectl apply -f https://raw.githubusercontent.com/younesaa/Reddit-Project/main/Prometheus/
    ```
 
 2. **Expose Prometheus and Grafana:**
